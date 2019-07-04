@@ -1,4 +1,5 @@
 
+
 public class IntersectingOrNot {
  
 	public static void main(String[] args) {
@@ -9,28 +10,45 @@ public class IntersectingOrNot {
 	  System.out.println("The lines made by the above points intersects = " + yesrno);
 	  if(yesrno==true){
 		  System.out.println("The lines made by the above points are intersecting");
+		  System.out.println("The points at which the lines intersect are");
+		  System.out.println(findIntersection(Line1, Line2));
 	  }
 	  else {
 		  System.out.println("The lines made by the above points are not intersecting");
 	  }
 	 }
 	
- LineSegment Line1, Line2;
+ public static LineSegment Line1, Line2;
  Boolean Intersects;
   
+ 
+
+private static Point findIntersection(LineSegment Line1, LineSegment Line2) {
+    float a1 = Line1.last.y - Line1.first.y;
+    float b1 = Line1.first.x - Line1.last.x;
+    float c1 = a1 * Line1.first.x + b1 * Line1.first.y;
+
+    float a2 = Line2.last.y - Line2.first.y;
+    float b2 = Line2.first.x - Line2.last.x;
+    float c2 = a2 * Line2.first.x + b2 * Line2.first.y;
+
+    float delta = a1 * b2 - a2 * b1;
+    return new Point((b2 * c1 - b1 * c2) / delta, (a1 * c2 - a2 * c1) / delta);
+}
+
 IntersectingOrNot(LineSegment Line1, LineSegment Line2){
-  this.Line1 = Line1;
-  this.Line2 = Line2;
- }
-  
-IntersectingOrNot(float x1, float y1, float x2, float y2,
-  float x3, float y3, float x4, float y4){
-  Point first1 = new Point(x1, y1), last1 = new Point(x2, y2);
-  this.Line1 = new LineSegment(first1, last1);
-  Point first2 = new Point(x3, y3), last2 = new Point(x4, y4); 
-  this.Line2 = new LineSegment(first2, last2);
- }
-  
+	  this.Line1 = Line1;
+	  this.Line2 = Line2;
+	 }
+	  
+	IntersectingOrNot(float x1, float y1, float x2, float y2,
+	  float x3, float y3, float x4, float y4){
+	  Point first1 = new Point(x1, y1), last1 = new Point(x2, y2);
+	  this.Line1 = new LineSegment(first1, last1);
+	  Point first2 = new Point(x3, y3), last2 = new Point(x4, y4); 
+	  this.Line2 = new LineSegment(first2, last2);
+	 }
+
 //All the required boolean condition for the implementation of my algorithm
  public boolean Intersects(){
   if (Intersects != null) {

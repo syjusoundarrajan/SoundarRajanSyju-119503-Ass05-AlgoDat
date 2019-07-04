@@ -1,8 +1,10 @@
 
+
 public class LineSegment {
 	float m, c;
 Point first, last;
 boolean VerLine; 
+
  
   
  public LineSegment(Point first, Point last) {
