@@ -7,6 +7,12 @@ public class IntersectingOrNot {
 		 IntersectingOrNot inputpointforlines = new IntersectingOrNot(4, 3, 2, 1, 1, 4, 5, 2);
 	  boolean yesrno = inputpointforlines.Intersects();
 	  System.out.println("The lines made by the above points intersects = " + yesrno);
+	  if(yesrno==true){
+		  System.out.println("The lines made by the above points are intersecting");
+	  }
+	  else {
+		  System.out.println("The lines made by the above points are not intersecting");
+	  }
 	 }
 	
  LineSegment Line1, Line2;
