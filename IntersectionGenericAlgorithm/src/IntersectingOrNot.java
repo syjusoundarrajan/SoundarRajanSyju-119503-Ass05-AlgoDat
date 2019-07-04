@@ -48,6 +48,7 @@ IntersectingOrNot(float x1, float y1, float x2, float y2,
     else {
     	gross = Line1.first.x;klein = Line1.last.x;
     }
+    //Took ref from http://moderntone.blogspot.com/ for understanding some these inplementations
     if (klein <= Line1start && Line1start <= gross) {
     	Intersects = true;}
     else {
