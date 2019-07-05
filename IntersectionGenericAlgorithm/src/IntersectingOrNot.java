@@ -5,7 +5,7 @@ public class IntersectingOrNot {
 	public static void main(String[] args) {
 		   
 		//My main method which is Testing with different line inputs made by the below points 
-		 IntersectingOrNot inputpointforlines = new IntersectingOrNot(4, 3, 2, 1, 1, 4, 5, 2);
+		 IntersectingOrNot inputpointforlines = new IntersectingOrNot(1, 1, 4, 4, 3, 2, 4, 2);
 	  boolean yesrno = inputpointforlines.Intersects();
 	  System.out.println("The lines made by the above points intersects = " + yesrno);
 	  if(yesrno==true){
@@ -18,30 +18,25 @@ public class IntersectingOrNot {
 	  }
 	 }
 	
- public static LineSegment Line1, Line2;
+public static LineSegment Line1, Line2;
  Boolean Intersects;
-  
- 
 
-private static Point findIntersection(LineSegment Line1, LineSegment Line2) {
-    float a1 = Line1.last.y - Line1.first.y;
-    float b1 = Line1.first.x - Line1.last.x;
-    float c1 = a1 * Line1.first.x + b1 * Line1.first.y;
+static Point findIntersection(LineSegment Line1, LineSegment Line2) {
+    float a1 = Line1.last.y - Line1.first.y,b1 = Line1.first.x - Line1.last.x, c1 = a1 * Line1.first.x + b1 * Line1.first.y;;
 
-    float a2 = Line2.last.y - Line2.first.y;
-    float b2 = Line2.first.x - Line2.last.x;
-    float c2 = a2 * Line2.first.x + b2 * Line2.first.y;
+    float a2 = Line2.last.y - Line2.first.y, b2 = Line2.first.x - Line2.last.x, c2 = a2 * Line2.first.x + b2 * Line2.first.y;
 
     float delta = a1 * b2 - a2 * b1;
+    //This part of the code have been understood and implemented by having some ref from the site https://rosettacode.org/ for clearing some doubts
     return new Point((b2 * c1 - b1 * c2) / delta, (a1 * c2 - a2 * c1) / delta);
 }
 
-IntersectingOrNot(LineSegment Line1, LineSegment Line2){
+public IntersectingOrNot(LineSegment Line1, LineSegment Line2){
 	  this.Line1 = Line1;
 	  this.Line2 = Line2;
 	 }
 	  
-	IntersectingOrNot(float x1, float y1, float x2, float y2,
+	public IntersectingOrNot(float x1, float y1, float x2, float y2,
 	  float x3, float y3, float x4, float y4){
 	  Point first1 = new Point(x1, y1), last1 = new Point(x2, y2);
 	  this.Line1 = new LineSegment(first1, last1);
